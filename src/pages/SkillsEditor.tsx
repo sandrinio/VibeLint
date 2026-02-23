@@ -5,7 +5,7 @@ import { Button } from '../components/ui/Button';
 import { ToastContainer, type ToastData } from '../components/ui/Toast';
 import { ConfirmDialog } from '../components/ui/ConfirmDialog';
 import { CreateItemDialog } from '../components/ui/CreateItemDialog';
-import { MarkdownEditor } from '../components/editor/MarkdownEditor';
+import { RichMarkdownEditor } from '../components/editor/RichMarkdownEditor';
 import {
   fetchRepos,
   fetchSkills,
@@ -356,7 +356,7 @@ export default function SkillsEditor() {
               </div>
 
               <div className="min-h-0 flex-1 overflow-auto">
-                <MarkdownEditor value={editorContent} onChange={setEditorContent} className="h-full" />
+                <RichMarkdownEditor value={editorContent} onChange={setEditorContent} className="h-full" />
               </div>
             </>
           ) : (

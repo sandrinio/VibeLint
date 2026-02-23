@@ -5,7 +5,7 @@ import { Button } from '../components/ui/Button';
 import { ToastContainer, type ToastData } from '../components/ui/Toast';
 import { CreateItemDialog } from '../components/ui/CreateItemDialog';
 import { CollapsibleSection } from '../components/ui/CollapsibleSection';
-import { MarkdownEditor } from '../components/editor/MarkdownEditor';
+import { RichMarkdownEditor } from '../components/editor/RichMarkdownEditor';
 import {
   fetchRepos,
   fetchRules,
@@ -282,7 +282,7 @@ export default function RulesEditor() {
           <CollapsibleSection title={platformRule?.displayName ?? 'Platform Rule'} defaultOpen>
             {platformRule ? (
               <>
-                <MarkdownEditor value={platformDraft} onChange={setPlatformDraft} />
+                <RichMarkdownEditor value={platformDraft} onChange={setPlatformDraft} />
                 <div className="mt-3 flex items-center gap-2">
                   <Button variant="primary" onClick={handleSavePlatformRule} disabled={!platformHasChanges}>Save</Button>
                   <Button variant="ghost" onClick={handleResetPlatformRule}><RotateCcw size={14} /> Reset to Default</Button>
@@ -332,7 +332,7 @@ export default function RulesEditor() {
                         </Button>
                       )}
                     </div>
-                    <MarkdownEditor
+                    <RichMarkdownEditor
                       value={commandDrafts[currentCmd.name] ?? ''}
                       onChange={(val: string) => setCommandDrafts((prev) => ({ ...prev, [currentCmd.name]: val }))}
                     />
@@ -357,7 +357,7 @@ export default function RulesEditor() {
           <CollapsibleSection title="LESSONS.md" defaultOpen>
             {lessonsRule ? (
               <>
-                <MarkdownEditor value={lessonsDraft} onChange={setLessonsDraft} />
+                <RichMarkdownEditor value={lessonsDraft} onChange={setLessonsDraft} />
                 <div className="mt-3 flex items-center gap-2">
                   <Button variant="primary" onClick={handleSaveLessons} disabled={!lessonsHasChanges}>Save</Button>
                   <Button variant="ghost" onClick={handleResetLessons}><RotateCcw size={14} /> Reset to Default</Button>

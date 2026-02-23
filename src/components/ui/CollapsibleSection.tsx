@@ -10,7 +10,7 @@ export function CollapsibleSection({
   defaultOpen?: boolean;
   children: ReactNode;
 }) {
-  const [open, setOpen] = useState(defaultOpen ?? true);
+  const [open, setOpen] = useState(defaultOpen ?? false);
   return (
     <div className="border border-[var(--border-primary)] rounded-lg mb-4">
       <button

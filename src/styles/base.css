@@ -38,3 +38,253 @@ a:hover {
       border-color var(--transition-normal) !important;
   }
 }
+
+/* ---- Markdown preview with line numbers ---- */
+
+.preview-line-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.preview-line-gutter {
+  flex-shrink: 0;
+  width: 48px;
+  padding-right: 12px;
+  text-align: right;
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--text-tertiary);
+  user-select: none;
+  font-family: ui-monospace, monospace;
+  padding-top: 2px;
+}
+
+.preview-line-content {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.7;
+}
+
+/* Markdown prose styles inside preview */
+.preview-line-content h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0.75em 0 0.5em;
+  color: var(--text-primary);
+}
+
+.preview-line-content h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0.75em 0 0.4em;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-primary);
+  padding-bottom: 0.25em;
+}
+
+.preview-line-content h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.6em 0 0.3em;
+  color: var(--text-primary);
+}
+
+.preview-line-content p {
+  margin: 0.4em 0;
+}
+
+.preview-line-content ul,
+.preview-line-content ol {
+  padding-left: 1.5em;
+  margin: 0.4em 0;
+}
+
+.preview-line-content li {
+  margin: 0.15em 0;
+}
+
+.preview-line-content code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.875em;
+  background: var(--bg-tertiary);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+}
+
+.preview-line-content pre {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  padding: 0.75em 1em;
+  overflow-x: auto;
+  margin: 0.5em 0;
+}
+
+.preview-line-content pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.8125rem;
+}
+
+.preview-line-content blockquote {
+  border-left: 3px solid var(--accent-primary);
+  padding-left: 1em;
+  margin: 0.5em 0;
+  color: var(--text-secondary);
+}
+
+.preview-line-content hr {
+  border: none;
+  border-top: 1px solid var(--border-primary);
+  margin: 1em 0;
+}
+
+.preview-line-content a {
+  color: var(--text-link);
+}
+
+.preview-line-content strong {
+  font-weight: 600;
+}
+
+.preview-line-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.5em 0;
+}
+
+.preview-line-content th,
+.preview-line-content td {
+  border: 1px solid var(--border-primary);
+  padding: 0.4em 0.75em;
+  text-align: left;
+}
+
+.preview-line-content th {
+  background: var(--bg-secondary);
+  font-weight: 600;
+}
+
+/* ---- Rich (TipTap) editor ---- */
+
+.rich-editor .tiptap {
+  outline: none;
+  padding: 16px 20px;
+  min-height: 100%;
+  line-height: 1.7;
+  font-size: 0.9375rem;
+}
+
+.rich-editor .tiptap > * + * {
+  margin-top: 0.5em;
+}
+
+.rich-editor .tiptap h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0.75em 0 0.4em;
+  color: var(--text-primary);
+}
+
+.rich-editor .tiptap h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0.75em 0 0.35em;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-primary);
+  padding-bottom: 0.25em;
+}
+
+.rich-editor .tiptap h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.6em 0 0.3em;
+  color: var(--text-primary);
+}
+
+.rich-editor .tiptap h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.5em 0 0.25em;
+  color: var(--text-primary);
+}
+
+.rich-editor .tiptap p {
+  margin: 0.3em 0;
+}
+
+.rich-editor .tiptap ul,
+.rich-editor .tiptap ol {
+  padding-left: 1.5em;
+  margin: 0.4em 0;
+}
+
+.rich-editor .tiptap li {
+  margin: 0.1em 0;
+}
+
+.rich-editor .tiptap li p {
+  margin: 0;
+}
+
+.rich-editor .tiptap code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.875em;
+  background: var(--bg-tertiary);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+  color: var(--accent-primary);
+}
+
+.rich-editor .tiptap pre {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  padding: 0.75em 1em;
+  overflow-x: auto;
+  margin: 0.5em 0;
+}
+
+.rich-editor .tiptap pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  color: var(--text-primary);
+  font-size: 0.8125rem;
+}
+
+.rich-editor .tiptap blockquote {
+  border-left: 3px solid var(--accent-primary);
+  padding-left: 1em;
+  margin: 0.5em 0;
+  color: var(--text-secondary);
+}
+
+.rich-editor .tiptap hr {
+  border: none;
+  border-top: 1px solid var(--border-primary);
+  margin: 1.5em 0;
+}
+
+.rich-editor .tiptap strong {
+  font-weight: 600;
+}
+
+.rich-editor .tiptap em {
+  font-style: italic;
+}
+
+.rich-editor .tiptap a {
+  color: var(--text-link);
+  text-decoration: underline;
+}
+
+/* Placeholder for empty editor */
+.rich-editor .tiptap p.is-editor-empty:first-child::before {
+  content: "Start typing... Use # for headings, - for lists";
+  color: var(--text-tertiary);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
