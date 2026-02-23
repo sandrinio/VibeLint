@@ -1,0 +1,54 @@
+# {{PROJECT_NAME}} — Cursor Rules
+
+## About This Project
+<!-- Describe your project so Cursor understands the context. -->
+[Describe your project here]
+
+## Tech Stack
+- Language: [e.g., TypeScript, Python, Go]
+- Framework: [e.g., React, FastAPI, Express]
+- Build tool: [e.g., Vite, Webpack, esbuild]
+- Package manager: [e.g., npm, pnpm, poetry]
+
+## Code Style & Conventions
+<!-- Define the coding style Cursor should follow when generating code. -->
+- [e.g., "Use functional components with hooks, never class components"]
+- [e.g., "Prefer const over let; never use var"]
+- [e.g., "Use async/await instead of .then() chains"]
+
+## Skills & Best Practices
+<!-- VibeLint will replace this placeholder with skill content from your analysis. -->
+{{SKILL_REFS}}
+
+## Project Structure
+<!-- Help Cursor understand where things live in the codebase. -->
+- `src/` — [Main application source code]
+- `src/components/` — [Reusable UI components]
+- `tests/` — [Test files mirroring src structure]
+- [Add other directories relevant to your project]
+
+## Naming Conventions
+- Files: [e.g., "kebab-case for files, PascalCase for components"]
+- Variables: [e.g., "camelCase for variables and functions"]
+- Constants: [e.g., "UPPER_SNAKE_CASE for constants"]
+
+## Patterns to Follow
+- [e.g., "Use the repository pattern for data access"]
+- [e.g., "Wrap all async operations in try/catch"]
+
+## Patterns to Avoid
+- [e.g., "Do not use any/unknown types without justification"]
+- [e.g., "Do not mutate state directly"]
+
+## Testing
+- [e.g., "Write unit tests using Jest and React Testing Library"]
+- [e.g., "Use describe/it blocks with descriptive test names"]
+
+## Error Handling
+- [e.g., "Use custom error classes for domain errors"]
+- [e.g., "Always provide meaningful error messages"]
+
+## Additional Context
+<!-- Any other rules or context Cursor should know about. -->
+- [e.g., "API responses follow the JSON:API specification"]
+- [e.g., "All dates are stored and transmitted in UTC"]

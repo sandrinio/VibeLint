@@ -1,0 +1,50 @@
+# {{PROJECT_NAME}} — CLAUDE.md
+
+## Project Overview
+<!-- Describe your project in 2-3 sentences. What does it do? Who is it for? -->
+[Describe your project here]
+
+## Tech Stack
+- Language: [e.g., TypeScript, Python, Go]
+- Framework: [e.g., React, FastAPI, Express]
+- Build tool: [e.g., Vite, Webpack, esbuild]
+- Package manager: [e.g., npm, pnpm, poetry]
+
+## Skills & Best Practices
+<!-- VibeLint will replace this placeholder with skill content from your analysis. -->
+{{SKILL_REFS}}
+
+## Project-Specific Rules
+<!-- Add rules that are unique to this project. These override general best practices. -->
+- [Add project-specific rules here]
+- [e.g., "Always use named exports, never default exports"]
+- [e.g., "All API endpoints must have input validation"]
+
+## File Structure
+<!-- Document key directories so the AI understands your project layout. -->
+- `src/` — [Main source code]
+- `tests/` — [Test files]
+- [Add other important directories]
+
+## Common Commands
+- Build: `[your build command]`
+- Test: `[your test command]`
+- Lint: `[your lint command]`
+
+## Coding Conventions
+<!-- Document naming conventions, formatting preferences, and style rules. -->
+- [e.g., "Use camelCase for variables, PascalCase for components"]
+- [e.g., "Maximum file length: 300 lines"]
+- [e.g., "All functions must have JSDoc comments"]
+
+## Error Handling
+- [e.g., "Use custom error classes extending BaseError"]
+- [e.g., "Never swallow errors silently"]
+
+## Testing Guidelines
+- [e.g., "Every new function needs a unit test"]
+- [e.g., "Use test factories for mock data"]
+
+## Lessons Learned
+<!-- VibeLint will replace this with a reference to your LESSONS.md file. -->
+{{LESSONS_REF}}

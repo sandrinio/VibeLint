@@ -1,0 +1,58 @@
+# {{PROJECT_NAME}} — Agent Instructions
+
+## Overview
+<!-- Provide a clear description of the project for any AI coding agent. -->
+[Describe your project here]
+
+## Technology Stack
+- Language: [e.g., TypeScript, Python, Go]
+- Framework: [e.g., React, FastAPI, Express]
+- Build tool: [e.g., Vite, Webpack, esbuild]
+- Package manager: [e.g., npm, pnpm, poetry]
+
+## Skills & Best Practices
+<!-- VibeLint will replace this placeholder with skill content from your analysis. -->
+{{SKILL_REFS}}
+
+## Coding Standards
+- [e.g., "Use strict type checking; avoid 'any' types"]
+- [e.g., "Functions should do one thing and do it well"]
+- [e.g., "Keep files focused; one component or module per file"]
+- [e.g., "Use meaningful names that reveal intent"]
+
+## Project Structure
+<!-- Document the directory layout so the agent can navigate the codebase. -->
+- `src/` — [Main application source code]
+- `src/core/` — [Core business logic]
+- `src/api/` — [API layer: routes, controllers, middleware]
+- `tests/` — [Test suites]
+- [Add other important directories]
+
+## Development Workflow
+- Build: `[your build command]`
+- Test: `[your test command]`
+- Lint: `[your lint command]`
+- Dev server: `[your dev server command]`
+
+## Architecture Principles
+- [e.g., "Separate concerns into distinct layers"]
+- [e.g., "Use interfaces to define contracts between modules"]
+- [e.g., "Prefer composition over inheritance"]
+
+## Error Handling
+- [e.g., "Use typed error hierarchies"]
+- [e.g., "Log errors at the boundary, not in utility functions"]
+
+## Testing Expectations
+- [e.g., "Unit tests for all business logic"]
+- [e.g., "Integration tests for API endpoints"]
+- [e.g., "Tests must pass before any code is merged"]
+
+## Things to Avoid
+- [e.g., "No circular dependencies between modules"]
+- [e.g., "No magic numbers; use named constants"]
+- [e.g., "No console.log in production code; use the logger"]
+
+## Platform-Specific Notes
+- This file is designed to work with any AI coding agent.
+- Adapt the instructions to your platform's conventions as needed.

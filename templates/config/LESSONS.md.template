@@ -1,0 +1,45 @@
+# LESSONS.md
+
+A living document capturing hard-won knowledge about this project.
+Update this file whenever you discover something that would save future developers time.
+
+---
+
+## Gotchas
+
+<!-- Document surprising behaviors, edge cases, and non-obvious pitfalls. -->
+<!-- These are the things that tripped you up and would trip up others. -->
+- [e.g., "The ORM silently truncates strings over 255 characters"]
+- [e.g., "Date parsing behaves differently in Safari vs. Chrome"]
+- [e.g., "The cache must be cleared after running database migrations"]
+
+## Patterns
+
+<!-- Document recurring patterns and preferred approaches in this codebase. -->
+<!-- These help maintain consistency across the project. -->
+- [e.g., "All API handlers follow the controller-service-repository pattern"]
+- [e.g., "Use the Result type for operations that can fail"]
+- [e.g., "Shared state is managed through React Context, not prop drilling"]
+
+## Decisions
+
+<!-- Document architectural decisions and the reasoning behind them. -->
+<!-- Include what was considered and why alternatives were rejected. -->
+- [e.g., "Chose PostgreSQL over MongoDB because the data is highly relational"]
+- [e.g., "Using server-side rendering for SEO-critical pages only"]
+- [e.g., "Adopted a monorepo to share types between frontend and backend"]
+
+## Dependencies
+
+<!-- Document key dependencies, version constraints, and known compatibility issues. -->
+- [e.g., "Pinned to React 18.x; React 19 migration blocked by library-x"]
+- [e.g., "Using fork of library-y until upstream PR #123 is merged"]
+- [e.g., "Node.js >= 18 required for native fetch support"]
+
+## Environment
+
+<!-- Document environment-specific setup notes and requirements. -->
+- [e.g., "Requires REDIS_URL environment variable for session storage"]
+- [e.g., "Local development uses Docker Compose; see docker-compose.yml"]
+- [e.g., "CI runs on Ubuntu 22.04 with Node.js 20"]
+- [e.g., "AWS credentials must be configured for S3 upload tests"]

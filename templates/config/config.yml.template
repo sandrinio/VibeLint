@@ -1,0 +1,30 @@
+# VibeLint Analysis Configuration
+# Adjust thresholds to match your project's standards.
+
+analysis:
+  # Complexity: when functions are flagged as too complex
+  complexity:
+    # Cyclomatic complexity counts independent paths through code
+    max_cyclomatic: 10
+    # Cognitive complexity measures how hard code is to understand
+    max_cognitive: 15
+
+  # Duplication: when repeated code blocks are flagged
+  duplication:
+    min_tokens: 50
+    min_lines: 6
+
+  # File size: when files are flagged for being too long
+  file_size:
+    max_lines: 300
+    warning_lines: 200
+
+  # Coupling: when modules have excessive dependencies
+  coupling:
+    max_imports: 10
+
+# Output configuration
+output:
+  report_dir: .vibelint/reports
+  # Format: json, markdown, or both
+  format: markdown

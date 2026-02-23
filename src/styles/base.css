@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+html {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+::selection {
+  background: var(--accent-subtle);
+  color: var(--text-primary);
+}
+
+/* Theme color transitions — scoped to theme switches only.
+   Applied via class so it doesn't interfere with Tailwind transitions. */
+[data-theme-transitioning] {
+  &, & *, & *::before, & *::after {
+    transition:
+      color var(--transition-normal),
+      background-color var(--transition-normal),
+      border-color var(--transition-normal) !important;
+  }
+}

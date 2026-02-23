@@ -1,0 +1,55 @@
+# {{PROJECT_NAME}} — Windsurf Rules
+
+## Project Description
+<!-- Provide a concise description so Windsurf understands the project context. -->
+[Describe your project here]
+
+## Technology Stack
+- Language: [e.g., TypeScript, Python, Go]
+- Framework: [e.g., React, FastAPI, Express]
+- Build system: [e.g., Vite, Webpack, esbuild]
+- Package manager: [e.g., npm, pnpm, poetry]
+
+## Skills & Best Practices
+<!-- VibeLint will replace this placeholder with skill content from your analysis. -->
+{{SKILL_REFS}}
+
+## Code Generation Rules
+<!-- Define rules Windsurf must follow when generating or modifying code. -->
+- [e.g., "Always add type annotations to function parameters and return values"]
+- [e.g., "Use early returns to reduce nesting depth"]
+- [e.g., "Keep functions under 30 lines where possible"]
+
+## Architecture Guidelines
+- [e.g., "Follow clean architecture with separate domain, application, and infrastructure layers"]
+- [e.g., "Use the adapter pattern for external service integrations"]
+
+## Directory Layout
+- `src/` — [Main source code]
+- `src/domain/` — [Domain models and business logic]
+- `src/services/` — [Application services]
+- `tests/` — [Test files]
+- [Add other directories]
+
+## Formatting & Style
+- [e.g., "Use 2-space indentation"]
+- [e.g., "Maximum line length: 100 characters"]
+- [e.g., "Sort imports: built-in, external, internal"]
+
+## Error Handling
+- [e.g., "Use typed error classes with error codes"]
+- [e.g., "Never catch errors without logging or re-throwing"]
+
+## Testing Standards
+- [e.g., "Write tests for all public functions"]
+- [e.g., "Use AAA pattern: Arrange, Act, Assert"]
+- [e.g., "Aim for 80% code coverage on new code"]
+
+## Things to Avoid
+- [e.g., "Never use eval() or dynamic code execution"]
+- [e.g., "Do not hardcode configuration values"]
+- [e.g., "Do not commit secrets or credentials"]
+
+## Additional Notes
+- [e.g., "This project deploys to AWS Lambda"]
+- [e.g., "All API responses are paginated by default"]
