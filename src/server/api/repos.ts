@@ -6,6 +6,7 @@ import { scanRepo, type RepoScanResult } from '../git/scanner.js';
 import {
   createRepo,
   getRepo,
+  getConfig,
   listRepos,
   deleteRepo,
   updateRepo,
@@ -39,6 +40,16 @@ function formatRepoResponse(row: RepoRow, scan?: RepoScanResult): RepoResponse {
 }
 
 export default async function reposRoutes(fastify: FastifyInstance): Promise<void> {
+
+  // Backfill: set platform on existing repos that have platform=null
+  const globalPlatform = getConfig('selected_platform') ?? null;
+  if (globalPlatform) {
+    for (const repo of listRepos()) {
+      if (!repo.platform) {
+        updateRepo(repo.id, { platform: globalPlatform });
+      }
+    }
+  }
 
   // GET /api/repos
   fastify.get('/api/repos', async () => {
@@ -89,13 +100,15 @@ export default async function reposRoutes(fastify: FastifyInstance): Promise<voi
       return reply.status(400).send({ error: message });
     }
 
-    // Insert into DB
+    // Insert into DB — inherit the globally-selected platform
     const id = nanoid(12);
+    const selectedPlatform = getConfig('selected_platform') ?? null;
     const row = createRepo({
       id,
       path: scan.path,
       name: scan.name,
       languages: scan.languages,
+      platform: selectedPlatform,
     });
 
     return reply.status(201).send(formatRepoResponse(row, scan));

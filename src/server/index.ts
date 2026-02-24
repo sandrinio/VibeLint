@@ -10,6 +10,8 @@ import skillsRoutes from './api/skills.js';
 import rulesRoutes from './api/rules.js';
 import commandsRoutes from './api/commands.js';
 import fsRoutes from './api/fs.js';
+import injectRoutes from './api/inject.js';
+import analysisRoutes from './api/analysis.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PKG_VERSION = '0.1.0';
@@ -57,6 +59,8 @@ export async function createServer(): Promise<FastifyInstance> {
   await server.register(rulesRoutes);
   await server.register(commandsRoutes);
   await server.register(fsRoutes);
+  await server.register(injectRoutes);
+  await server.register(analysisRoutes);
 
   // --- Health Check ---
   server.get('/api/health', async () => {

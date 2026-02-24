@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard';
 import { SetupWizard } from './pages/SetupWizard.tsx';
 import SkillsEditor from './pages/SkillsEditor';
 import RulesEditor from './pages/RulesEditor';
+import AnalysisView from './pages/AnalysisView';
 
 function PlaceholderPage({ title }: { title: string }) {
   return (
@@ -24,7 +25,7 @@ export default function App() {
         <Route path="/setup" element={<SetupWizard />} />
         <Route path="/skills" element={<SkillsEditor />} />
         <Route path="/rules" element={<RulesEditor />} />
-        <Route path="/analysis" element={<PlaceholderPage title="Analysis" />} />
+        <Route path="/analysis" element={<AnalysisView />} />
         <Route path="/pr" element={<PlaceholderPage title="PR Navigator" />} />
         <Route path="/trends" element={<PlaceholderPage title="Trends" />} />
         <Route path="/docs-status" element={<PlaceholderPage title="Docs Status" />} />

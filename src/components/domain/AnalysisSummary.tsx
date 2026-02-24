@@ -1,45 +1,40 @@
 import { Card } from '../ui/Card';
 import { Badge } from '../ui/Badge';
+import type { AnalysisCheck, AnalysisCheckStatus } from '../../lib/api';
 
-type Status = 'pass' | 'warn' | 'fail';
-
-interface AnalysisRow {
-  check: string;
-  status: Status;
-  details: string;
-}
-
-const statusIcon: Record<Status, string> = {
+const statusIcon: Record<AnalysisCheckStatus, string> = {
   pass: '\u2713',
   warn: '\u26A0',
   fail: '\u2715',
 };
 
-const statusLabel: Record<Status, string> = {
+const statusLabel: Record<AnalysisCheckStatus, string> = {
   pass: 'Pass',
   warn: 'Warn',
   fail: 'Fail',
 };
 
-const rows: AnalysisRow[] = [
-  { check: 'Complexity', status: 'warn', details: '+8 in auth.ts' },
-  { check: 'Duplicates', status: 'fail', details: '3 clones (>10 lines)' },
-  { check: 'Error handling', status: 'warn', details: '2 empty catch blocks' },
-  { check: 'New dependencies', status: 'pass', details: 'None' },
-  { check: 'File size', status: 'warn', details: 'auth.ts 482 lines' },
-  { check: 'Coupling', status: 'pass', details: '4 dirs, 12 files' },
-];
+interface AnalysisSummaryProps {
+  checks: AnalysisCheck[];
+  timestamp?: string;
+}
 
-export function AnalysisSummary() {
+export function AnalysisSummary({ checks, timestamp }: AnalysisSummaryProps) {
+  const dateStr = timestamp
+    ? new Date(timestamp).toLocaleString()
+    : null;
+
   return (
     <Card>
       <div className="mb-3 flex items-center justify-between">
         <h3 className="text-[1rem] font-semibold text-[var(--text-primary)]">
-          Latest analysis
+          Analysis Summary
         </h3>
-        <span className="text-[0.75rem] text-[var(--text-tertiary)]">
-          feature/auth vs main
-        </span>
+        {dateStr && (
+          <span className="text-[0.75rem] text-[var(--text-tertiary)]">
+            {dateStr}
+          </span>
+        )}
       </div>
 
       <table className="w-full">
@@ -57,21 +52,21 @@ export function AnalysisSummary() {
           </tr>
         </thead>
         <tbody>
-          {rows.map((row) => (
+          {checks.map((check) => (
             <tr
-              key={row.check}
+              key={check.name}
               className="border-b border-[var(--border-secondary)] transition-colors duration-100 hover:bg-[var(--surface-hover)]"
             >
               <td className="py-2 px-3 text-[0.875rem] text-[var(--text-primary)]">
-                {row.check}
+                {check.name}
               </td>
               <td className="py-2 px-3">
-                <Badge variant={row.status}>
-                  {statusIcon[row.status]} {statusLabel[row.status]}
+                <Badge variant={check.status}>
+                  {statusIcon[check.status]} {statusLabel[check.status]}
                 </Badge>
               </td>
               <td className="py-2 px-3 text-[0.875rem] text-[var(--text-secondary)]">
-                {row.details}
+                {check.summary}
               </td>
             </tr>
           ))}

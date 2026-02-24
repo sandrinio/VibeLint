@@ -1,4 +1,5 @@
-import { FolderGit2, Clock } from 'lucide-react';
+import { FolderGit2, Clock, Download } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Card } from '../ui/Card';
 import { Badge } from '../ui/Badge';
 import { Button } from '../ui/Button';
@@ -7,9 +8,13 @@ import type { RepoResponse } from '../../lib/api';
 
 interface RepoCardProps {
   repo: RepoResponse;
+  injectedAt?: string | null;
+  onInject?: () => void;
 }
 
-export function RepoCard({ repo }: RepoCardProps) {
+export function RepoCard({ repo, injectedAt, onInject }: RepoCardProps) {
+  const navigate = useNavigate();
+
   return (
     <Card className="flex flex-col">
       {/* Header */}
@@ -40,10 +45,18 @@ export function RepoCard({ repo }: RepoCardProps) {
       {/* Divider */}
       <div className="my-3 border-t border-[var(--border-secondary)]" />
 
-      {/* Last scan */}
-      <div className="flex items-center gap-1.5 text-[0.75rem] text-[var(--text-secondary)]">
-        <Clock size={14} className="text-[var(--text-tertiary)]" />
-        Last scan: {formatTime(repo.lastScanAt)}
+      {/* Timestamps */}
+      <div className="space-y-1">
+        <div className="flex items-center gap-1.5 text-[0.75rem] text-[var(--text-secondary)]">
+          <Clock size={14} className="text-[var(--text-tertiary)]" />
+          Last scan: {formatTime(repo.lastScanAt)}
+        </div>
+        {injectedAt && (
+          <div className="flex items-center gap-1.5 text-[0.75rem] text-[var(--text-secondary)]">
+            <Download size={14} className="text-[var(--text-tertiary)]" />
+            Injected: {formatTime(injectedAt)}
+          </div>
+        )}
       </div>
 
       {/* Divider */}
@@ -51,11 +64,11 @@ export function RepoCard({ repo }: RepoCardProps) {
 
       {/* Actions */}
       <div className="flex items-center gap-2">
-        <Button variant="primary" size="sm" disabled title="Coming in EPIC-005">
+        <Button variant="primary" size="sm" onClick={() => navigate('/analysis')}>
           Run Analysis
         </Button>
-        <Button variant="secondary" size="sm" disabled title="Coming in EPIC-004">
-          Re-inject
+        <Button variant="secondary" size="sm" onClick={onInject}>
+          {injectedAt ? 'Re-inject' : 'Inject'}
         </Button>
       </div>
     </Card>

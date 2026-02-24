@@ -51,6 +51,8 @@ export interface RepoResponse {
   path: string;
   name: string;
   languages: string[];
+  platform: string | null;
+  injected_at: string | null;
   lastScanAt: string | null;
 }
 
@@ -223,6 +225,66 @@ export function resetCommand(repoId: string, name: string): Promise<CommandRespo
   return request<CommandResponse>(`/repos/${encodeURIComponent(repoId)}/commands/${encodeURIComponent(name)}/reset`, {
     method: 'POST',
   });
+}
+
+/* ---------- Injection ---------- */
+
+export interface InjectionFileEntry {
+  relativePath: string;
+  category: string;
+  action: 'create' | 'update';
+}
+
+export interface InjectionResult {
+  files: InjectionFileEntry[];
+  directories: string[];
+  gitignoreEntries: string[];
+}
+
+export function fetchInjectionPreview(repoId: string): Promise<InjectionResult> {
+  return request<InjectionResult>(`/repos/${encodeURIComponent(repoId)}/inject/preview`);
+}
+
+export function executeInjection(repoId: string): Promise<InjectionResult> {
+  return request<InjectionResult>(`/repos/${encodeURIComponent(repoId)}/inject`, {
+    method: 'POST',
+  });
+}
+
+/* ---------- Analysis ---------- */
+
+export type AnalysisCheckStatus = 'pass' | 'warn' | 'fail';
+
+export interface AnalysisCheck {
+  name: string;
+  status: AnalysisCheckStatus;
+  summary: string;
+}
+
+export interface AnalysisReport {
+  repoId: string;
+  repoName: string;
+  timestamp: string;
+  totalFiles: number;
+  languageSummary: Array<{ language: string; fileCount: number }>;
+  checks: AnalysisCheck[];
+  fileSize: { status: AnalysisCheckStatus; summary: string; issues: Array<{ relativePath: string; lines: number; status: AnalysisCheckStatus }> };
+  functionSize: { status: AnalysisCheckStatus; summary: string; issues: Array<{ relativePath: string; functionName: string; lines: number; lineNumber: number; status: AnalysisCheckStatus }> };
+  errorPatterns: { status: AnalysisCheckStatus; summary: string; issues: Array<{ relativePath: string; lineNumber: number; pattern: string }> };
+  complexity: { status: AnalysisCheckStatus; summary: string; available: boolean; issues: Array<{ relativePath: string; functionName: string; lineNumber: number; complexity: number; status: AnalysisCheckStatus }> };
+  duplication: { status: AnalysisCheckStatus; summary: string; available: boolean; duplicates: unknown[]; statistics: { clones: number; duplicatedLines: number; percentage: number } | null };
+  dependencies: { status: AnalysisCheckStatus; summary: string; newDeps: Array<{ name: string; version?: string; manifest: string }>; removedDeps: unknown[] };
+  coupling: { status: AnalysisCheckStatus; summary: string; filesChanged: number; dirsChanged: number };
+}
+
+export function runAnalysis(repoId: string): Promise<AnalysisReport> {
+  return request<AnalysisReport>(`/repos/${encodeURIComponent(repoId)}/analysis`, {
+    method: 'POST',
+  });
+}
+
+export function fetchLatestAnalysis(repoId: string): Promise<{ id: number; repoId: string; analysisData: { checks: AnalysisCheck[]; totalFiles: number } | null; createdAt: string }> {
+  return request(`/repos/${encodeURIComponent(repoId)}/analysis/latest`);
 }
 
 /* ---------- Filesystem ---------- */
